@@ -19,10 +19,11 @@ const addGames = (newgame) => {
     return promise 
 }
 
-async function showGame(item1) {
+async function showGame(item1,callback) {
     try{
         await addGames(item1)
-        listGames()
+        callback()
+        //listGames()
     }catch(err){
         console.log(err)
     }
@@ -30,3 +31,8 @@ async function showGame(item1) {
 }
 
 showGame({name: 'Minecraft', player: 'Arif'})
+showGame({name: 'World Of Warcraft', player: 'Muzaffer'})
+showGame({name: 'Quake', player: 'Ahmet'},listGames) 
+
+
+
