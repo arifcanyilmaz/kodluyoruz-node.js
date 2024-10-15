@@ -30,8 +30,3 @@ async function showGame(item1) {
 }
 
 showGame({name: 'Minecraft', player: 'Arif'})
-showGame({name: 'Football', player: 'Messi'})
-
-
-
-
