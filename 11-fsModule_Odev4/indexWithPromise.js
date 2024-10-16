@@ -10,7 +10,7 @@ const data = {
 async function create() {
     try{
         // (writeFile -> Oluşturmak) Dosyaya veriyi string şeklinde gönderiyoruz.
-        await fs.writeFile('11-fsModuleOdev4/employees.json', JSON.stringify(data), "utf8")
+        await fs.writeFile('11-fsModule_Odev4/employees.json', JSON.stringify(data), "utf8")
         console.log("1.Adım: JSON Dosyası Oluşturuldu.");
     }catch(err){
         console.log('1.Adım: Dosya Oluşturulamadı.')
@@ -22,7 +22,7 @@ async function create() {
 async function read() {
     try{
         // (readFile -> Okumak) Direkt data.name ile okuyabiliriz.
-        await fs.readFile('11-fsModuleOdev4/employees.json', 'utf8')
+        await fs.readFile('11-fsModule_Odev4/employees.json', 'utf8')
         console.log(`2.Adım: Dosya Okundu -> İsim: ${data.name} || Maaş: ${data.salary}`)
     }catch(err){
         console.log('2.Adım: Dosya Okunamadı.')
@@ -39,7 +39,7 @@ async function update() {
         data.salary = 30000
 
         // (writeFile -> Oluşturmak) Güncel bilgilerle yeniden dosyayı oluşturuyoruz.
-        await fs.writeFile("11-fsModuleOdev4/employees.json", JSON.stringify(data), "utf8")
+        await fs.writeFile("11-fsModule_Odev4/employees.json", JSON.stringify(data), "utf8")
         console.log(`3.Adım: Dosya Güncellendi -> İsim: ${data.name} || Maaş: ${data.salary}`)
         
         
@@ -51,7 +51,7 @@ async function update() {
 async function deleteFile() {
     try{
         // (unlink -> Silmek) Dosyayı siliyoruz.
-        await fs.unlink("11-fsModuleOdev4/employees.json")
+        await fs.unlink("11-fsModule_Odev4/employees.json")
         console.log("4.Adım: Dosya Başarıyla Silindi.")
     }catch(err){
         console.log('4.Adım: Dosya Silinemedi.')
