@@ -1,5 +1,8 @@
 const express = require('express');
 const app = express();
+
+app.use(express.static('public'))
+
 app.get('/', (req, res) => {
   const photo = {
     id: 1,
@@ -8,7 +11,8 @@ app.get('/', (req, res) => {
   };
   res.send(photo);
 });
-// server'ın çalışması için listen metodunu yaz
+
+
 const port = 3000;
 app.listen(port, () => {
   console.log(`Sunucu ${port}'de baslatildi..`);
