@@ -3,12 +3,13 @@ const fs = require('fs').promises
 const data = {
     'name': 'Arif',
     'salary': 2000
-}
+} 
 
 // 1.Adım: JSON Dosyasını oluşturma
 
 async function create() {
     try{
+        // (writeFile -> Oluşturmak) Dosyaya veriyi string şeklinde gönderiyoruz.
         await fs.writeFile('11-fsModuleOdev4/employees.json', JSON.stringify(data), "utf8")
         console.log("1.Adım: JSON Dosyası Oluşturuldu.");
     }catch(err){
@@ -20,6 +21,7 @@ async function create() {
 
 async function read() {
     try{
+        // (readFile -> Okumak) Direkt data.name ile okuyabiliriz.
         await fs.readFile('11-fsModuleOdev4/employees.json', 'utf8')
         console.log(`2.Adım: Dosya Okundu -> İsim: ${data.name} || Maaş: ${data.salary}`)
     }catch(err){
@@ -32,13 +34,27 @@ async function read() {
 
 async function update() {
     try{
-        let fileData = await fs.readFile("employees/employees.json", "utf8")
-        fileData = fileData.replace("name", "Muzaffer")
-        fileData = fileData.replace("salary", 20000)
-        await fs.writeFile("employees/employees.json", fileData, "utf8")
-        console.log(`3.Adım: Dosya Güncellendi -> İsim: ${fileData.name} || Maaş: ${fileData.salary}`)
+        // Bilgileri Güncelliyoruz.
+        data.name = 'Muzaffer'
+        data.salary = 30000
+
+        // (writeFile -> Oluşturmak) Güncel bilgilerle yeniden dosyayı oluşturuyoruz.
+        await fs.writeFile("11-fsModuleOdev4/employees.json", JSON.stringify(data), "utf8")
+        console.log(`3.Adım: Dosya Güncellendi -> İsim: ${data.name} || Maaş: ${data.salary}`)
+        
+        
     }catch(err){
         console.log('3.Adım: Dosya Güncellenemedi.')
+    }
+}
+
+async function deleteFile() {
+    try{
+        // (unlink -> Silmek) Dosyayı siliyoruz.
+        await fs.unlink("11-fsModuleOdev4/employees.json")
+        console.log("4.Adım: Dosya Başarıyla Silindi.")
+    }catch(err){
+        console.log('4.Adım: Dosya Silinemedi.')
     }
 }
 
@@ -48,6 +64,7 @@ async function main(){
     await read()
     await update()
     await read()
+    await deleteFile()
 }
 
 main()

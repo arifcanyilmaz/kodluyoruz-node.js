@@ -23,7 +23,8 @@ async function showGame(item1,callback) {
     try{
         await addGames(item1)
         callback()
-        //listGames()
+        //listGames() --> Her bir veri eklendiğinde en baştan listeyi 
+        //yazdırmaması için son gönderdiğimiz veriyle gönderiyoruz bu fonsksiyonu.
     }catch(err){
         console.log(err)
     }
