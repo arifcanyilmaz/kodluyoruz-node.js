@@ -56,13 +56,13 @@ const fs = require('fs') //Kullanıma hazır(core) modül. Ondan dosya yoluna ge
 // })
 
 
-//KLASÖR SİLMEK
-fs.rm('10-fsModule/uploads', {recursive: true}, (err) => {
-    if (err) console.log('7-KLASÖRLER SİLİNEMEDİ')
-    else {
-        console.log('7-Klasörler Silindi')
-    }
+// //KLASÖR SİLMEK
+// fs.rm('10-fsModule/uploads', {recursive: true}, (err) => {
+//     if (err) console.log('7-KLASÖRLER SİLİNEMEDİ')
+//     else {
+//         console.log('7-Klasörler Silindi')
+//     }
     
-})
+// })
 
-console.log(__filename)
+// console.log(__filename)
